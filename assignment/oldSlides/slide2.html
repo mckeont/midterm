@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--stylesheet imports-->
+    <link rel="stylesheet" href="leaflet.css" />
+  </head>
+  <body>
+    <!--left panel-->
+    <div style="position: absolute; left: 0px; width: 400px; top: 0; bottom: 0;"></div>
+    <!--map-->
+    <div id="map" style="position: absolute; right: 0; left: 400px; top: 0; bottom: 0;"></div>
+
+    <!--javascript imports-->
+    <script src="leaflet.js"></script>
+    <!--The code below actually generates the map. Any code you would like to add
+    	should be between the "<script></script>" tags.-->
+    <script>
+      var map = L.map('map', {
+        center: [39.9522, -75.1639],
+        zoom: 14
+      });
+
+      var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}', {
+	      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      	subdomains: 'abcd',
+      	minZoom: 0,
+      	maxZoom: 20,
+      	ext: 'png'
+      }).addTo(map);
+
+
+    </script>
+  </body>
+</html>
+<style>
+
+.sidebar {
+    position: absolute;
+    left: 0px;
+    width: 350px;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    padding: 20px;
+    font-size: 16px;
+    border: solid;
+    background-color: #F5F5DC;
+}
+.button {
+  background-color: seashell;
+  width: 100px;
+  height: 40px;
+  margin-top: 30px;
+}
+
+.para {
+  background-color: #FFF8DC;
+  border: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 2%
+  text-align: center;
+}
+.smaller-image {
+  width: 350px;
+  border-radius: 5%;
+  border-width:2px;
+}
+</style>
+<html id= "Page1">
+
+
+
+  <head>
+    <title> state.slideNumber </title>
+  </head>
+  <body>
+
+    <!-- Start HTML -->
+
+    <!-- End HTML -->
+
+    <!-- Start Javascript Imports -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/jquery-2.2.0.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/basicApplication.js"></script>
+
+    <!-- End Javascript Imports -->
+    <div class="sidebar">
+      <!-- =====================
+      Add elements in this space
+      ====================== -->
+    <!--  //header-->
+      <h2 id="main-heading">Which Days of the Week Are they Open?</h2>
+    <!--  //intro paragraph-->
+      <p class= "para"><b> Farmers market are open on different days of the week, this makes it easy for everyone
+      to find time to enjoy fresh produce, culture and meet new friends. Make sure to bring your umbrella though!
+      Farmers markets are mostly outside and a sudden rain event can really dampen your mood. Pun intended.</b></p>
+
+      <label id="text-label1" for="text-input1">Input box</label>
+      <input id="text-input1" class="input-text" type="text" placeholder="URL" >
+      <br>
+      <br>
+      <label id="text-label2" for="text-input2">Your Location</label>
+      <input id="text-input2" class="input-text" type="text" placeholder="location here" >
+      <br>
+      <br>
+      <label id="text-label3" for="text-input3">Comments?</label>
+      <input id="text-input3" class="input-text" type="text" placeholder="Comments here" >
+      <br>
+      <br>
+      <center><img class= "smaller-image" src = "http://www.portagewibid.org/wp-content/uploads/2014/11/Farmersmarket.jpg"></img></center>
+      <a href = "basicApplication.html "><button id="PreviousButton" class= "button"><b>< Previous</b></button></a>
+      <a><button id="SlideName" class ="button"><b>Slide 1</b></button></a>
+      <a href = "slide3.html"><button id="NextButton" class= "button"><b>Next ></b></button></a>
+
+    </div>
+    <!-- Map -->
+    <div id="map" class="map"></div>
+
+    <!-- Javascript Imports -->
+
+  </body>
+  </html>

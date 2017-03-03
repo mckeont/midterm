@@ -24,6 +24,8 @@ https://raw.githubusercontent.com/CPLN692-MUSA611/datasets/master/geojson/philad
 
 You should now have GeoJSON data projected onto your map!
 
+
+
 ## Task 2
 
 Style each garbage collection area with a different color depending on what day
@@ -124,10 +126,39 @@ of the application to report this information.
 ===================== */
 
 var dataset = "https://raw.githubusercontent.com/CPLN692-MUSA611/datasets/master/geojson/philadelphia-garbage-collection-boundaries.geojson"
-var featureGroup;
+var featureGroup
+
+// var featureGroup = [{
+//    "type": "object",
+//    "properties": {"COLLDAY": "WED"},
+//    "geometry": {
+//        "type": "Polygon",
+// }}, {
+//     "type": "object",
+//     "properties": {"COLLDAY": "FRI"},
+//     "geometry": {
+//        "type": "Polygon",
+//   }}];
+
+  // L.geoJSON(featureGroup, {
+  //     style: function(feature) {
+  //         switch (feature.properties.COLLDAY) {
+  //             case 'WED': return {color: "#ff0000"};
+  //             case 'FRI':   return {color: "#0000ff"};
+  //         }
+  //     }
+  // }).addTo(map);
 
 var myStyle = function(feature) {
-  return {};
+  // return {fillColor: 'red'};
+switch(feature.properties.COLLDAY) {
+  case 'MON': return {color: "#DC143C", fillOpacity: 0.5, weight: 1};
+  case 'WED': return {color: "#9932CC", fillOpacity: 0.5, weight: 1};
+  case 'FRI': return {color: "#E9967A", fillOpacity: 0.5, weight: 1};
+  case 'TUE': return {color: "#4682B4", fillOpacity: 0.5, weight: 1};
+  case 'THU': return {color: "#00CED1", fillOpacity: 0.5, weight: 1};
+  default: return {color:"#FFFFFF"};
+}
 };
 
 var showResults = function() {
@@ -143,7 +174,7 @@ var showResults = function() {
   $('#results').show();
 };
 
-
+//Task 4
 var eachFeatureFunction = function(layer) {
   layer.on('click', function (event) {
     /* =====================
@@ -151,18 +182,48 @@ var eachFeatureFunction = function(layer) {
     Check out layer.feature to see some useful data about the layer that
     you can use in your application.
     ===================== */
+    var fullDay = layer.feature.properties.COLLDAY;
+    switch (fullDay){
+      case "MON": fullDay = "Monday";
+      break;
+      case "TUE": fullDay = "Tuesday";
+      break;
+      case "WED": fullDay = "Wednesday";
+      break;
+      case "THU": fullDay = "Thursday";
+      break;
+      case "FRI": fullDay = "Friday";
+      break;
+      default: console.log("No garbage collection day!");
+    }
+    $(".day-of-week").html(fullDay);
     console.log(layer.feature);
     showResults();
   });
 };
-
+//Task 3
 var myFilter = function(feature) {
-  return true;
+  if(feature.properties.DAY !==" "){
+return true;
+} else {
+  return false;
+}
+
+
+// _.filter([myStyle],function(feature) {
+//   if feature.properties.COLLDAY = 0; });
+
+
+//   _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+// => [2, 4, 6]
+
 };
+
 
 $(document).ready(function() {
   $.ajax(dataset).done(function(data) {
     var parsedData = JSON.parse(data);
+    console.log(parsedData);
     featureGroup = L.geoJson(parsedData, {
       style: myStyle,
       filter: myFilter

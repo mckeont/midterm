@@ -7,6 +7,48 @@ body {
 p.main {
   font-size: 24px;
 }
+.legend {
+  background-color: silver;
+  position: absolute;
+  z-index: 2000;
+  right: 20px;
+  left: 85%;
+  border-radius: 10%;
+  border-width:5px;
+  border-color: black;
+  border-style: solid;
+}
+.legend-title{
+  color: #00008B;
+  text-align: center;
+  margin: 5px;
+}
+.subheader{
+  color: black;
+  text-align: center;
+  margin: 10px;
+}
+.mon{
+  color: #DC143C;
+}
+.tues{
+  color: #4682B4;
+}
+.wed{
+  color: #9932CC;
+}
+.thurs{
+  color:#00CED1;
+}
+.fri{
+  color: #E9967A;
+}
+
+.smaller-image{
+  width:120px;
+  margin-left:20px;
+  border-radius: 8%
+}
 
 .map {
     position: absolute;
@@ -25,10 +67,4 @@ p.main {
     overflow-y: auto;
     padding: 20px;
     font-size: 16px;
-}
-
-.legend {
-  position: absolute;
-  background-color: #fff;
-  z-index: 2000;
 }

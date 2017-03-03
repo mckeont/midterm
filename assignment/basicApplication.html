@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <link rel="stylesheet" href="css/reset.css" /> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <style>
+  .main-heading {
+    font-size: 15px;
+  }
+  .sidebar {
+      position: absolute;
+      left: 0px;
+      width: 350px;
+      top: 0;
+      bottom: 0;
+      overflow-y: auto;
+      padding: 20px;
+      font-size: 16px;
+      border: solid;
+      background-color: powderblue;
+  }
+  .button {
+    background-color: seashell;
+    width: 100px;
+    height: 40px;
+    margin-top: 30px;
+    border: solid;
+    border-color: black;
+    border-width: 2px;
+  }
+
+  .para {
+    background-color: #FFF8DC;
+    border: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 2%;
+    text-align: center;
+  }
+  .smaller-image {
+    width: 350px;
+    border-radius: 5%;
+    border-width:2px;
+  }
+
+  .infoHeader {
+    color: white;
+    font-size: 24px;
+  }
+
+  #slide1 {
+    background-color: powderblue;
+    z-index: 1;
+  }
+  #slide2 {
+    background-color: #F5F5DC;
+    z-index: 0;
+  }
+  #slide3{
+    background-color: #DEB887;
+    z-index: 0;
+  }
+  #slide4{
+    background-color: #5F9EA0;
+    z-index: 0;
+  }
+  #slide5{
+    background-color:#FFA07A;
+    z-index: 0;
+  }
+  </style>
+
+</head>
+  <body>
+    <!--map-->
+    <div id="map" style="position: absolute; right: 0; left: 400px; top: 0; bottom: 0;"></div>
+<!-- //
+//SLIDE 1
+// -->
+    <div class="sidebar" id = "slide1">
+      <!---//header-->
+      <h2 id="main-heading">Philadelphia Farmers Markets</h2>
+      <!--//intro paragraph-->
+      <p class= "para"><b>  Philadelphia Farmers Markets are a staple to good health and community well-being. These markets are
+          located all over the city and offer opportunities for locals and travelers to unite on the love of food.
+          Often farmers markets are a hub for art and music. It's common to see artists show off their hard work
+          and splash a color of culture to the already vibrant city of Philadelphia. Enjoy this interactive map and
+          visit a farmers market near you!</b></p>
+          <br>
+      <center><img class= "smaller-image" src = "http://www.foothillfarmersmarket.com/images/homePic-panPl.jpg"></img></center>
+      <a><button id="next1" class= "button"><b>Next></b></button></a>
+
+</div>
+
+    <!-- //
+    //SLIDE 2
+    // -->
+    <div class= "sidebar" id = "slide2">
+      <h2 id="main-heading">Which Days of the Week Are they Open?</h2>
+    <!--  //intro paragraph-->
+      <p class= "para"><b> Farmers market are open on different days of the week, this makes it easy for everyone
+      to find time to enjoy fresh produce, culture and meet new friends. Make sure to bring your umbrella though!
+      Farmers markets are mostly outside and a sudden rain event can really dampen your mood. Pun intended.</b></p>
+      <br>
+      <br>
+      <center><img class= "smaller-image" src = "http://www.portagewibid.org/wp-content/uploads/2014/11/Farmersmarket.jpg"></img></center>
+      <a><button id="prev2" class= "button"><b>< Previous</b></button></a>
+      <a><button id="next2" class= "button"><b>Next ></b></button></a>
+    </div>
+
+    <!-- //
+    //SLIDE 3
+    // -->
+    <div class= "sidebar" id = "slide3">
+      <h2 id="main-heading">What Times are they Open?</h2>
+    <!--  //intro paragraph-->
+      <p class= "para"><b> The last thing you want to do is show up too early or too late. You can't just
+       show up on the right day and expect the market to be open! Take a look at the different times farmers
+     markets open near you. If you're looking for a great place to bring a date take 'em out to get an apple!</b></p>
+      <br>
+      <br>
+      <center><img class= "smaller-image" src = "http://ucecp.org/wp-content/uploads/2015/04/Farmers-Market-Open.jpg"></img></center>
+      <a><button id="prev3" class= "button"><b>< Previous</b></button></a>
+      <a><button id="next3" class= "button"><b>Next ></b></button></a>
+    </div>
+
+    <!-- //
+    //SLIDE 4
+    // -->
+    <div class="sidebar" id = "slide4">
+      <h2 id="main-heading">Which Months are they Open?</h2>
+    <!--  //intro paragraph-->
+      <p class= "para"><b> Well now that you have the right time and day of the week, don't forget the season! onerror
+      Farmers markets are seasonal and you can't expect to find the market in business in the middle of Winter!</b></p>
+      <br>
+      <br>
+      <center><img class= "smaller-image" src = "http://www.northernvirginiamag.com/wp-content/uploads/2014/01/shutterstock_141202729.jpg"></img></center>
+    <!-- buttons -->
+      <a><button id="prev4" class= "button"><b>< Previous</b></button></a>
+      <a><button id="next4" class= "button"><b>Next ></b></button></a>
+    </div>
+
+    <!-- //
+    //SLIDE 5
+    // -->
+    <div class= "sidebar" id = "slide5">
+    <h2 id="main-heading">Accept Snap Access?</h2>
+  <!--  //intro paragraph-->
+    <p class= "para"><b> What are some of the benefits of your local farmers market?
+    Find out which ones accept SNAP!</b></p>
+    <br>
+    <br>
+    <center><img class= "smaller-image" src = "http://files.cfra.org/images/rra-snap-card.jpg"></img></center>
+    <!-- buttons -->
+      <a><button id="prev5" class= "button"><b>< Previous</b></button></a>
+  </div>
+
+<!-- //scripts -->
+      <script src="js/jquery-2.2.0.js"></script>
+      <script src="js/underscore.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+      <script src="js/farmerSet.js"></script>
+      <script src="js/basicApplication.js"></script>
+
+
+      <!-- <script>
+      $(function() {
+        $('#button4').click(function(){
+          $('div').each(function(item){
+            if(item < 4){
+              $(this).remove();
+            }
+          });
+        });
+
+      });
+
+      </script> -->
+
+    <script>
+
+    var pageList = [
+      {
+        title: "Philadelphia Farmers Markets",
+        id: "#slide1"
+      },
+      {
+        title: "Which Days of the Week Are they Open?",
+        id: "#slide2"
+      },
+      {
+        title: "What Times are they Open?",
+        id: "#slide3"
+      },
+      {
+        title: "What Months are they Open?",
+        id: "#slide4"
+      },
+      {
+        title: "What Months are they Open?",
+        id: "#slide5"
+      }
+    ];
+
+    var myStyle = function(point) {
+      // return {fillColor: 'red'};
+    switch(point.properties.DAY) {
+      case 'sat': return {color: "#DC143C"};
+      case 'fri': return {color: "#9932CC"};
+      case 'sun': return {color: "#E9967A"};
+      default: return {color:"#FFFFFF"};
+    }
+    };
+
+    // TESTING STUFF
+    var snapAccess = L.geoJson(farmerSet, {
+            filter: function(feature, layer) {
+                // return feature.properties.ACCEPT_SNAP_ACCESS == "X";
+                return false;
+            }
+        });
+
+
+// MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP
+$(document).ready(function() {
+  var map = L.map('map', {
+    center: [39.9522, -75.1639],
+    zoom: 14
+  });
+
+  var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}', {
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    subdomains: 'abcd',
+    minZoom: 0,
+    maxZoom: 20,
+    ext: 'png'
+  }).addTo(map);
+  // Add some GeoJSON
+  var marker = L.marker([39.9522, -75.1639]);
+  var popUp = "Ima Pickle Stand!";
+  var popUp2 = "New message?"
+  marker.bindPopup(popUp);
+  marker.addTo(map);
+  L.geoJSON(farmerSet).addTo(map).bindPopup(popUp);
+
+  function base (feature, layer) {
+  layer.bindPopup("<h1> Info Window</h1>");
+  layer.setIcon(teardrop);
+  layer.setMarker(marker);
+  };
+  //
+  $("#next1").click(function(){
+     $("#slide1").css("z-index","-1");
+     $("#slide2").css("z-index", "1");
+     $("#slide3 #slide4 #slide5").css("z-index", 0);
+     map.setView([39.9522, -75.1939]);
+
+  });
+
+  $("#next2").click(function(){
+     $("#slide2").css("z-index","-1");
+     $("#slide3").css("z-index", "1");
+     $("#slide1 #slide4 #slide5").css("z-index", 0);
+     map.setView([39.9722, -75.1639]);
+
+     snapAccess.addTo(map)
+  });
+
+  $("#next3").click(function(){
+     $("#slide3").css("z-index","-1");
+     $("#slide4").css("z-index", "1");
+     $("#slide1 #slide2 #slide5").css("z-index", 0);
+      map.setView([39.9622, -75.1699]);
+
+  });
+
+  $("#next4").click(function(){
+     $("#slide4").css("z-index","-1");
+     $("#slide5").css("z-index", "1");
+     $("#slide1 #slide2 #slide3").css("z-index", 0);
+      map.setView([39.9222, -75.1659]);
+
+
+  });
+  //
+  $("#prev2").click(function(){
+     $("#slide1").css("z-index","1");
+     $("#slide2").css("z-index", "-1");
+     $("#slide3 #slide4 #slide5").css("z-index", 0);
+    map.setView([39.9222, -75.1659]);
+  });
+
+  $("#prev3").click(function(){
+    $("#slide2").css("z-index","1");
+    $("#slide3").css("z-index", "-1");
+    $("#slide1 #slide4 #slide5").css("z-index", 0);
+    map.setView([39.9522, -75.1939]);
+    map.setZoom(13);
+  });
+
+  $("#prev4").click(function(){
+     $("#slide3").css("z-index","1");
+     $("#slide4").css("z-index", "-1");
+     $("#slide1 #slide2 #slide3").css("z-index", 0);
+     map.setView([39.9722, -75.1639]);
+  });
+
+  $("#prev5").click(function(){
+     $("#slide4").css("z-index","10");
+     $("#slide5").css("z-index", "-1");
+     $("#slide1 #slide2 #slide3").css("z-index", 0);
+      map.setView([39.9622, -75.1699]);
+  });
+
+});
+    </script>
+  </body>
+</html>
